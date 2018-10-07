@@ -88,6 +88,11 @@ handlers.hello = (data, callback) => {
     callback(200, { message: 'Hello, World!'});
 };
 
+// Nested path handler
+handlers.nested = (data, callback) => {
+  callback(200, { id: 10, values: ['one', 'two', 'three' ] });
+};
+
 // Not found handler
 handlers.notFound = function(data,callback){
   callback(404);
@@ -96,5 +101,6 @@ handlers.notFound = function(data,callback){
 // Define the request router
 var router = {
   'sample' : handlers.sample,
-  'hello' : handlers.hello
+  'hello' : handlers.hello,
+  'some/nesting' : handlers.nested
 };
