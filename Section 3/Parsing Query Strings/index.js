@@ -10,7 +10,9 @@ var url = require('url');
  // Configure the server to respond to all requests with a string
 var server = http.createServer(function(req,res){
 
+  console.log(req.headers);
   // Parse the url
+
   var parsedUrl = url.parse(req.url, true);
 
   // Get the path
@@ -21,7 +23,7 @@ var server = http.createServer(function(req,res){
   var queryStringObject = parsedUrl.query;
 
   // Get the HTTP method
-  var method = req.method.toLowerCase();
+  var method = req.method.toUpperCase();
 
   // Send the response
   res.end('Hello World!\n');

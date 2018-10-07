@@ -6,7 +6,9 @@
 // Dependencies
 var http = require('http');
 var url = require('url');
-var StringDecoder = require('string_decoder').StringDecoder;
+const { StringDecoder } = require('string_decoder');
+var qs = require('querystring');
+
 
  // Configure the server to respond to all requests with a string
 var server = http.createServer(function(req,res){
@@ -41,6 +43,7 @@ var server = http.createServer(function(req,res){
 
       // Log the request/response
       console.log('Request received with this payload: ',buffer);
+      console.log('Parsed body data: ', qs.parse(buffer));
   });
 });
 
